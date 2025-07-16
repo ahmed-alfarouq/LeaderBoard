@@ -40,7 +40,7 @@ main {
   margin: auto;
 }
 
-h1.title {
+.title {
   font-size: 30px;
   padding: 15px 15px 15px 290px;
   background: #f6f6f6;
@@ -48,13 +48,13 @@ h1.title {
   color: #5e2a86d9;
 }
 
-main div.scores {
+.scores {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-main div.scores .header {
+.scores .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -62,13 +62,13 @@ main div.scores .header {
   margin-bottom: 20px;
 }
 
-main form h2,
-main div.scores .header h2 {
+.add-score h2,
+.scores .header h2 {
   font-size: 22px;
   color: #5e2a86d9;
 }
 
-main div.scores .header button {
+.scores .header .refresh-btn {
   border: none;
   outline: none;
   border-radius: 5px;
@@ -77,42 +77,50 @@ main div.scores .header button {
   cursor: pointer;
 }
 
-main div.scores ul.body {
+.scores .list-container {
   list-style: none;
   border: 1px solid #3c00004f;
+  border-radius: 5px;
   margin: 10px 0;
-  box-shadow: 0 0 4px 1px #3c00004f;
+  box-shadow: 0 0 2px 0px #3c00004f;
   width: 780px;
-  height: 150px;
+  max-height: 550px;
+  overflow: auto;
   grid-template-columns: 340px 440px;
   grid-template-rows: 538px;
-  grid-column-gap: 0;
-  grid-row-gap: 0;
 }
 
-main div.scores ul.body h2 {
-  text-align: center;
-  margin-top: 60px;
+.scores .list-container .message,
+.scores .list-container .empty {
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
   font-size: 19px;
   color: rgb(54, 54, 54);
+  background-color: transparent !important;
 }
 
-main div.scores ul.body li.top-score {
-  grid-area: 1 / 1 / 10 / 2;
-  background-color: rgb(132, 122, 209) !important;
-  text-align: center;
+.scores .list-container li {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  transform: scaleY(1.07) scaleX(1.01);
+  font-size: 18px;
+}
+
+.scores .list-container .top-score {
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 10px;
+  text-align: center;
+  border-radius: 0;
   box-shadow: 0 0 4px 1px #090940;
+  background-color: rgb(132, 122, 209);
   color: #fff;
   font-weight: 500;
 }
 
-main div.scores ul.body li.top-score span.top {
-  background-image: url('./img/o-top.png');
+.scores .list-container .top-score .top {
+  background-image: url("./img/o-top.png");
   background-position: center;
   background-size: cover;
   font-weight: 700;
@@ -120,83 +128,97 @@ main div.scores ul.body li.top-score span.top {
   color: #000;
 }
 
-main div.scores ul.body li.top-score img {
+.scores .list-container .top-score img {
   width: 115px;
   display: block;
   margin: 0 auto;
 }
 
-main div.scores ul.body li.top-score h3 {
+.scores .list-container .top-score h3 {
   color: white;
   font-weight: 300;
   font-size: 20px;
 }
 
-main div.scores ul.body li.top-score span.name {
+.scores .list-container .top-score span.name {
   display: block;
   color: white;
   font-size: 20px;
   font-weight: 600;
 }
 
-main div.scores ul.body li.top-score span.score {
+.scores .list-container .top-score span.score {
   background: #ffffffbd;
   padding: 20px 0;
   border-radius: 50%;
-  width: 60px;
+  width: 55px;
+  height: 55px;
   margin-top: 10px;
   font-weight: 600;
   color: #7e46ab;
 }
 
-main div.scores ul.body li.other-scores {
+.scores .list-container li:not(.top-score) {
   overflow-y: scroll;
 }
 
-main div.scores ul.body li.other-scores li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.scores .list-container li:not(.top-score) {
   padding: 10px;
-  font-size: 18px;
 }
 
-main div.scores ul.body li.other-scores img {
+.scores .list-container li:not(.top-score) img {
   width: 50px;
 }
 
-main div.scores ul.body li.other-scores li:nth-child(odd) {
+.scores .list-container li:not(.top-score):nth-child(odd) {
   background-color: #e2e9f5;
 }
 
-main form div {
+.add-score div {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 50%;
+  gap: 20px;
+  margin-top: 20px;
 }
 
-main form div input {
+.add-score input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #fff;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.add-score input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
   outline: none;
-  border-radius: 4px;
-  border: 1px solid black;
-  background-color: #e2e2e24f;
-  font-size: 13px;
-  padding: 3px 10px;
 }
 
-main form div input::placeholder {
-  color: rgb(65, 1, 1);
-}
-
-main form div input:last-child {
-  align-self: flex-end;
-  border-radius: 5px;
-  padding: 5px 10px;
-  font-size: 15px;
+.add-score button {
+  width: 100%;
+  background-color: #6366f1;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
-  background-color: #e2e9f5;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.add-score button:hover {
+  background-color: #4f46e5;
+  transform: scale(1.03);
+}
+
+.add-score button:active {
+  background-color: #4338ca;
+  transform: scale(0.97);
 }
 
 @media screen and (max-width: 991px) {
@@ -204,20 +226,27 @@ main form div input:last-child {
     padding: 15px;
     text-align: center;
   }
-
+  
   main {
     height: 900px;
   }
 
-  main .scores {
+  .scores {
     justify-content: center;
   }
 }
 
 @media screen and (max-width: 786px) {
-  main div.scores ul.body {
-    width: 570px;
-    grid-template-columns: 250px 320px;
+  .scores {
+    width: 95%;
+  }
+
+  .scores .list-container {
+    width: 100%;
+  }
+
+  .add-score {
+    width: 95%;
   }
 }
 
@@ -230,22 +259,8 @@ main form div input:last-child {
     height: auto;
   }
 
-  main form {
+  .add-score {
     height: 250px;
-  }
-
-  main div.scores ul.body {
-    width: 390px;
-    grid-template-columns: 1fr;
-    grid-template-rows: 320px;
-  }
-}
-
-@media screen and (max-width: 395px) {
-  main div.scores ul.body {
-    width: 270px;
-    grid-template-columns: 1fr;
-    grid-template-rows: 400px;
   }
 }
 
@@ -256,8 +271,8 @@ footer {
   left: 0;
   right: 0;
   background-color: #e2e9f5;
-  padding: 10px;
-  font-size: 20px;
+  padding: 20px 10px;
+  font-size: 25px;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -276,8 +291,8 @@ footer div.contact {
 footer div.contact a {
   color: #7e46ab;
   text-decoration: none;
-  font-size: 25px;
-  margin-left: 2px;
+  font-size: 30px;
+  margin-left: 5px;
 }
 
 @media screen and (max-width: 576px) {

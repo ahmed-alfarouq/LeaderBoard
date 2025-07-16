@@ -15,12 +15,12 @@ You can add your score and name. Compare yours with others
 
 # Get started
 1) Open your command
-2) Type "git clone https://github.com/ahmed-al-farouq/LeaderBoard.git"
+2) Type "git clone https://github.com/ahmed-alfarouq/LeaderBoard.git"
 3) npm i
 4) npm run start
 
 # Live Demo
-[Live-Dome](https://ahmed-al-farouq.github.io/LeaderBoard/)
+[Live-Dome](https://ahmed-alfarouq.github.io/LeaderBoard/)
 
 # Prerequisites
 You need to know:
@@ -32,16 +32,15 @@ You need to know:
 
 # Setup
 1) Open command line
-2) Type "git clone https://github.com/ahmed-al-farouq/LeaderBoard.git"
+2) Type "git clone https://github.com/ahmed-alfarouq/LeaderBoard.git"
 3) npm i webpack webpack-cli webpack-dev-server --save-dev
 4) npm run start
 5) Enjoy!
 
 # Authors
 :bearded_person: **Ahmed Omar**
-  - Github: [@Ahmed-Alfarouq](https://github.com/ahmed-al-farouq)
-  - LinkedIn: [LinkedIn](https://www.linkedin.com/in/ahmed-al-farouq/)
-  - Twitter: [@twitter](https://twitter.com/ahmed_al_farouq)
+  - Github: [@Ahmed-Alfarouq](https://github.com/ahmed-alfarouq)
+  - LinkedIn: [LinkedIn](https://www.linkedin.com/in/ahmed-alfarouq/)
 
 
 ## 🤝 Contributing
