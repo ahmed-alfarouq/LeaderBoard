@@ -9,6 +9,9 @@ const renderList = async (data) => {
   const listItems = document.getElementById("list-items");
   const topScoreItem = document.getElementById("top-score");
 
+  listItems.innerHTML = "";
+  topScoreItem.innerHTML = "";
+  
   data.forEach((item, i) => {
     const listItem = document.createElement("li");
     if (i === 0) {

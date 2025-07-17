@@ -11,12 +11,11 @@ const getData = async () => {
 
   if (!data.result || !data.result.length) {
     toggleEmptyMessage();
-    return;
+  } else {
+    const sortedUsers = sortScores(data.result);
+
+    await renderList(sortedUsers);
   }
-
-  const sortedUsers = sortScores(data.result);
-
-  await renderList(sortedUsers);
   const loader = document.getElementById("loader");
   loader.classList.add("hidden");
 };

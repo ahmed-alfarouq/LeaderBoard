@@ -172,10 +172,10 @@ main {
 
 .scores .list-items li {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   font-size: 20px;
-  padding: 10px;
+  padding: 10px 15px;
 }
 
 .scores .list-items li img {
@@ -199,7 +199,7 @@ main {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
   margin-top: 30px;
 }
 
@@ -239,6 +239,12 @@ main {
 .add-score button:active {
   background-color: #4338ca;
   transform: scale(0.97);
+}
+
+.add-score #form-error {
+  color: red;
+  font-size: 12px;
+  align-self: flex-start;
 }
 
 /* Start Footer */

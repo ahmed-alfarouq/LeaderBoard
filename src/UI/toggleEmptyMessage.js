@@ -1,6 +1,7 @@
 const toggleEmptyMessage = () => {
-  const emptyMessageEl = document.getElementById("empty");
-  emptyMessageEl.classList.toggle("hiddne");
+  const listContainer = document.getElementById("list-container");
+  listContainer.innerHTML = `
+  <p class="empty">There're no score yet, add yours!</p>`;
 };
 
 export default toggleEmptyMessage;

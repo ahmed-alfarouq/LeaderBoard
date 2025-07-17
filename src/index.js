@@ -2,6 +2,7 @@ import "./main.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 import sendData from "./js/sendData.js";
 import getData from "./js/getData.js";
+import { isValidData } from "./utils.js";
 
 const createDOM = () => {
   const structure = `
@@ -14,8 +15,7 @@ const createDOM = () => {
       <header>
         <h2>Recent Scores</h2>
       </header>
-      <div class="list-container">
-        <p class="empty hidden" id="empty">Please, click on the refresh button above.</p>
+      <div class="list-container" id="list-container">
         <div class="top-score" id="top-score"></div>
         <ul class="list-items" id="list-items">
         </ul>
@@ -26,6 +26,7 @@ const createDOM = () => {
       <div>
           <input type="text" id="name" placeholder="Your Name" />
           <input type="text" id="score" placeholder="Your Score" />
+          <span id="form-error"></span>
           <button type="submit" id="submit">ADD</button>
       </div>
     </form>
@@ -44,12 +45,25 @@ const createDOM = () => {
   `;
   document.body.innerHTML = structure;
   getData();
+
   const submitBtn = document.getElementById("submit");
+
   submitBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    const user = document.getElementById("name").value;
+    const loader = document.getElementById("loader");
+    const errorMessage = document.getElementById("form-error");
+    const user = document.getElementById("name").value.trim();
     const score = document.getElementById("score").value;
-    return sendData({ user, score });
+    const isValid = isValidData(user, score);
+
+    if (isValid.ok) {
+      loader.classList.remove("hidden");
+      errorMessage.innerText = "";
+      sendData({ user, score });
+      return;
+    }
+
+    errorMessage.innerText = isValid.message;
   });
 };
 
