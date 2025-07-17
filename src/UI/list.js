@@ -5,30 +5,28 @@ import avatar4 from "../img/avatar.png";
 
 const avatars = [avatar2, avatar3, avatar4];
 
-const renderList = (data) => {
-  const listContainer = document.getElementById("list-container");
-  listContainer.innerHTML = "";
-  
-  data.map((item, i) => {
-    const listItem = document.createElement("li");
+const renderList = async (data) => {
+  const listItems = document.getElementById("list-items");
+  const topScoreItem = document.getElementById("top-score");
 
+  data.forEach((item, i) => {
+    const listItem = document.createElement("li");
     if (i === 0) {
-      listItem.innerHTML = `
+      topScoreItem.innerHTML = `
               <p><span class="top">Top</span> Score</p>
-              <img src=${avatar1} alt=""/>
+              <img src=${avatar1} alt="${item.user}-avatar" />
               <span class="name"> ${item.user}</span>
               <span class="score"> ${item.score}</span>
               `;
-      listItem.classList.add("top-score");
-    } else {
-      listItem.innerHTML = `
+      return;
+    }
+    listItem.innerHTML = `
               <img src=${avatars[Math.round(Math.random() * 2.5)]} alt=""/>
               <span class="name"> ${item.user}</span>
               <span class="score"> ${item.score}</span>
               `;
-    }
 
-    return listContainer.append(listItem);
+    listItems.append(listItem);
   });
 };
 

@@ -1,6 +1,6 @@
 import { API_URL } from "./sendData.js";
 
-import emptyMessage from "../UI/emptyMessage.js";
+import toggleEmptyMessage from "../UI/toggleEmptyMessage.js";
 import renderList from "../UI/list.js";
 
 import { sortScores } from "../utils.js";
@@ -10,13 +10,15 @@ const getData = async () => {
   const data = await response.json();
 
   if (!data.result || !data.result.length) {
-    emptyMessage();
+    toggleEmptyMessage();
     return;
   }
 
   const sortedUsers = sortScores(data.result);
 
-  renderList(sortedUsers);
+  await renderList(sortedUsers);
+  const loader = document.getElementById("loader");
+  loader.classList.add("hidden");
 };
 
 export default getData;

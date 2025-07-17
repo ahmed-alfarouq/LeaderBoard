@@ -5,19 +5,22 @@ import getData from "./js/getData.js";
 
 const createDOM = () => {
   const structure = `
+  <div class="loader" id="loader">
+    <span class="spinner"></span>
+  </div>
   <h1 class="title">Leader Board</h1>
   <main>
     <div class="scores">
-      <div class="header">
+      <header>
         <h2>Recent Scores</h2>
-        <button class="refresh-btn" id="refresh">
-          Refresh
-        </button>
+      </header>
+      <div class="list-container">
+        <p class="empty hidden" id="empty">Please, click on the refresh button above.</p>
+        <div class="top-score" id="top-score"></div>
+        <ul class="list-items" id="list-items">
+        </ul>
       </div>
-      <ul class="list-container" id="list-container">
-        <li class="message">Please, click on the refresh button above.</li>
-      </ul>
-    </div>  
+    </div>
     <form class="add-score">
       <h2>Add your score</h2>
       <div>
@@ -40,10 +43,7 @@ const createDOM = () => {
   </footer>
   `;
   document.body.innerHTML = structure;
-
-  const refreshBtn = document.getElementById("refresh");
-  refreshBtn.addEventListener("click", getData);
-
+  getData();
   const submitBtn = document.getElementById("submit");
   submitBtn.addEventListener("click", (e) => {
     e.preventDefault();
